@@ -30,7 +30,7 @@ export const Header = () => {
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item">Coupon</a></li>
                                 <li><a class="dropdown-item">Product</a></li>
-                                <li> <hr class="dropdown-divider"/></li>
+                                <li> <hr class="dropdown-divider" /></li>
                             </ul>
                         </li>
 
@@ -43,6 +43,43 @@ export const Header = () => {
                             <a class="nav-link">
                                 &nbsp; <i class="bi bi-cart icon-white"></i>&nbsp;
                             </a>
+                        </li>
+
+                        {/* app page */}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                all page
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <Link to="/login" className="dropdown-item" >login</Link>
+                                <Link to="/register" className="dropdown-item" >register</Link>
+                                <Link to="/" className="dropdown-item" >Home</Link>
+
+
+                                <Link to="/CartPage" className="dropdown-item" >Cart Page</Link>
+                                <Link to="/Cardconfirmation" className="dropdown-item" >Card confirmation</Link>
+                                <Link to="/OrderSummary" className="dropdown-item" >Order Summary</Link>
+
+
+                                
+                                <Link to="/couponCreate" className="dropdown-item" >Coupon Create</Link>
+                                <Link to="/couponDelete" className="dropdown-item" >Coupon Delete</Link>
+                                <Link to="/couponsList" className="dropdown-item" >Coupons List</Link>
+
+
+                                <Link to="/orderDetails" className="dropdown-item" >Order Details</Link>
+                                <Link to="/orderDetails" className="dropdown-item" >Order Index</Link>
+                                
+
+                                <Link to="/productCreate" className="dropdown-item" >productCreate</Link>
+                                <Link to="/productDelete" className="dropdown-item" >ProductDelete</Link>
+                               <Link to="/productEdit" className="dropdown-item" >Product Edit</Link>
+                               <Link to="/productDetais" className="dropdown-item" >Product Detais</Link>
+
+
+
+                            </ul>
                         </li>
 
                     </ul>

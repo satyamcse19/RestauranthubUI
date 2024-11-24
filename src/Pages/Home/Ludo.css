@@ -1,0 +1,35 @@
+#b1 {
+    background-color: blue; 
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    cursor: pointer;
+}
+
+#b2 {
+    background-color: yellow; 
+    color: rgb(47, 121, 134); 
+    padding: 10px; 
+    border: none; 
+    cursor: pointer;
+}
+
+#b3 {
+    background-color: green; 
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    cursor: pointer;
+}
+
+#b4 {
+    background-color: red; 
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    cursor: pointer;
+}
+
+p, h1 {
+    color: white;
+}

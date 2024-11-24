@@ -7,6 +7,7 @@ export const Home = () => {
         axios.get('https://localhost:7000/api/product')
             .then(function (response) {
                 // handle success
+                console.log("Api responce",response)
                 setProduct(response?.data?.result);
             })
             .catch(function (error) {
@@ -57,5 +58,3 @@ export const Home = () => {
     )
 
 }
-
-
