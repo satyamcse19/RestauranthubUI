@@ -4,8 +4,7 @@ import {toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
-
-    const navigate=useNavigate();
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -136,18 +135,21 @@ export const Register = () => {
     }
 
     try {
-      const response = await axios.post('https://localhost:7002/api/auth/register', formData);
+      const response = await axios.post('http://122.166.86.165/Auth/api/auth/register', formData);
+      console.log(response)
       if (response.data.isSuccess) {
         if (!formData.role) {
           formData.role = 'CUSTOMER';
         }
-        const roleResponse = await axios.post('https://localhost:7002/api/auth/AssignRole', formData);
+        const roleResponse = await axios.post('http://122.166.86.165/Auth/api/auth/AssignRole', formData);
+        console.log(roleResponse)
         if (roleResponse.data.isSuccess) {
             toast.success("Registration Successful!");
             navigate("/login")
         }
       }
     } catch (error) {
+      toast.error("Something went wrong we are looking and try to fix as soon as posiable !");
       console.error("API error:", error);
     }
   };

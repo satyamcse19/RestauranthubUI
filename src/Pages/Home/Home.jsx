@@ -1,60 +1,68 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';  // Only import React and hooks (if used)
+import React, { useEffect, useState } from 'react';
 
 export const Home = () => {
     const [product, setProduct] = useState([]);
+
     const getproductdata = () => {
-        axios.get('https://localhost:7000/api/product')
+        axios.get('http://122.166.86.165/product/api/product')
             .then(function (response) {
-                // handle success
-                console.log("Api responce",response)
                 setProduct(response?.data?.result);
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
             .finally(function () {
                 // always executed
             });
-    }
+    };
 
-    console.log(product)
     useEffect(() => {
         getproductdata();
-    }, [])
+    }, []);
 
     return (
-
-        <div class="container row">
+        <div className="container row">
             {product.map((product) => (
-
-                <div key={product.productId} class="col-12 col-md-6 col-lg-4">
-                    <div class="p-0 my-3 border rounded">
-                        <div class="card">
-                            <h3 class="card-title text-white-50 text-center py-2">{product.name}</h3>
-                            <img src={product.imageUrl} class="card-img-top" />
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between py-2">
+                <div key={product.productId} className="col-12 col-md-6 col-lg-4">
+                    <div className="p-0 my-3 border rounded">
+                        <div className="card">
+                            <h3 className="card-title text-white-50 text-center py-2">{product.name}</h3>
+                            {/* Image Handling */}
+                            <div className="card-img-container" style={{ height: '200px', overflow: 'hidden' }}>
+                                <img 
+                                    src={product.imageUrl} 
+                                    className="card-img-top" 
+                                    alt={product.name} 
+                                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                                />
+                            </div>
+                            <div className="card-body">
+                                <div className="d-flex justify-content-between py-2">
                                     <span className="text-danger" style={{ fontSize: "20px" }}>
-                                        {product.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+                                        {product.price.toLocaleString('en-US', { style: 'currency', currency: 'INR' })}
                                     </span>
-                                    <span class="badge bg-warning text-white p-2">{product.categoryName}</span>
+                                    <span className="badge bg-warning text-white p-2">{product.categoryName}</span>
                                 </div>
-                                <p className="card-text" dangerouslySetInnerHTML={{ __html: product.description }} />
-                                <div class="row">
-                                    <div class="col">
-                                        <a class="btn btn-success form-control">Details</a>
+                                
+                                {/* Responsive Description */}
+                                <div className="description">
+                                    <p className="card-text"  style={{color:'black'}} dangerouslySetInnerHTML={{ __html: product.description }} />
+                                </div>
+                                
+                                {/* Responsive Details Button */}
+                                <div className="row">
+                                    <div className="col-12 col-md-6">
+                                        <a href="#" className="btn btn-success form-control">
+                                            Details
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             ))}
         </div>
-    )
-
-}
+    );
+};
